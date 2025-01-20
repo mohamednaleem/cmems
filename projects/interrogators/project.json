@@ -1,0 +1,91 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "interrogators",
+  "projectType": "application",
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "sourceRoot": "projects/interrogators/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "ngx-build-plus:browser",
+      "options": {
+        "outputPath": "dist/interrogators",
+        "index": "projects/interrogators/src/index.html",
+        "polyfills": ["zone.js"],
+        "tsConfig": "projects/interrogators/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["projects/interrogators/src/favicon.ico", "projects/interrogators/src/assets"],
+        "styles": ["projects/interrogators/src/styles.scss"],
+        "scripts": [],
+        "main": "projects/interrogators/src/main.ts",
+        "extraWebpackConfig": "projects/interrogators/webpack.config.js",
+        "commonChunk": false
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all",
+          "extraWebpackConfig": "projects/interrogators/webpack.prod.config.js"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production",
+      "outputs": ["{options.outputPath}"]
+    },
+    "serve": {
+      "executor": "ngx-build-plus:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "interrogators:build:production",
+          "extraWebpackConfig": "projects/interrogators/webpack.prod.config.js"
+        },
+        "development": {
+          "buildTarget": "interrogators:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4202,
+        "publicHost": "http://localhost:4202",
+        "extraWebpackConfig": "projects/interrogators/webpack.config.js"
+      }
+    },
+    "extract-i18n": {
+      "executor": "ngx-build-plus:extract-i18n",
+      "options": {
+        "buildTarget": "interrogators:build",
+        "extraWebpackConfig": "projects/interrogators/webpack.config.js"
+      }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "polyfills": ["zone.js", "zone.js/testing"],
+        "tsConfig": "projects/interrogators/tsconfig.spec.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["projects/interrogators/src/favicon.ico", "projects/interrogators/src/assets"],
+        "styles": ["projects/interrogators/src/styles.scss"],
+        "scripts": []
+      }
+    }
+  }
+}

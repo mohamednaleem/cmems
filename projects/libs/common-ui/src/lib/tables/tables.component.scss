@@ -1,0 +1,14 @@
+@import '~ag-grid-community/styles/ag-grid.css';
+@import '~ag-grid-community/styles/ag-theme-alpine.css';
+
+.table-container {
+  margin-top: 1rem;
+}
+
+:host ::ng-deep .first-column-style span a {
+  color: #009CDE !important;
+  text-decoration: none !important;
+  background-color: transparent;
+  pointer-events: none;
+  cursor: pointer !important;
+}

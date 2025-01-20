@@ -1,0 +1,91 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "patients",
+  "projectType": "application",
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "sourceRoot": "projects/patients/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "ngx-build-plus:browser",
+      "options": {
+        "outputPath": "dist/patients",
+        "index": "projects/patients/src/index.html",
+        "polyfills": ["zone.js"],
+        "tsConfig": "projects/patients/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["projects/patients/src/favicon.ico", "projects/patients/src/assets"],
+        "styles": ["projects/patients/src/styles.scss"],
+        "scripts": [],
+        "main": "projects/patients/src/main.ts",
+        "extraWebpackConfig": "projects/patients/webpack.config.js",
+        "commonChunk": false
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all",
+          "extraWebpackConfig": "projects/patients/webpack.prod.config.js"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production",
+      "outputs": ["{options.outputPath}"]
+    },
+    "serve": {
+      "executor": "ngx-build-plus:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "patients:build:production",
+          "extraWebpackConfig": "projects/patients/webpack.prod.config.js"
+        },
+        "development": {
+          "buildTarget": "patients:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4201,
+        "publicHost": "http://localhost:4201",
+        "extraWebpackConfig": "projects/patients/webpack.config.js"
+      }
+    },
+    "extract-i18n": {
+      "executor": "ngx-build-plus:extract-i18n",
+      "options": {
+        "buildTarget": "patients:build",
+        "extraWebpackConfig": "projects/patients/webpack.config.js"
+      }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "polyfills": ["zone.js", "zone.js/testing"],
+        "tsConfig": "projects/patients/tsconfig.spec.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["projects/patients/src/favicon.ico", "projects/patients/src/assets"],
+        "styles": ["projects/patients/src/styles.scss"],
+        "scripts": []
+      }
+    }
+  }
+}

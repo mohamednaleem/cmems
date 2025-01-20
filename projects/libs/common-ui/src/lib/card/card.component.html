@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-header">
+    {{ cardTitle }}
+  </div>
+  <hr />
+  <div class="card-body">
+    <div *ngFor="let item of cardData | keyvalue">
+      <div class="card-flex">
+        <div class="key">{{ item.key | keyFormat }}</div>
+        <div class="value">{{ item.value }}</div>
+      </div>
+    </div>
+  </div>
+</div>

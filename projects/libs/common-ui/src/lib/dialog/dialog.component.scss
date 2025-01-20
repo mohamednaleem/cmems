@@ -1,0 +1,20 @@
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+.dialog-container {
+    .dialog-header {
+        border-bottom: 1px solid #dee2e6;
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 0rem 0.5rem 1rem;
+        align-items: center;
+        // background: #004f71;
+        .title-close {
+            .dialog-close-button {
+                width: 2rem !important;
+                height: 2rem !important;
+            }
+        }
+    }
+    .dialog-section {
+        border-bottom: 1px solid #dee2e6;
+    }
+}

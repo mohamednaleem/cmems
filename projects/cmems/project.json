@@ -1,0 +1,92 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "cmems",
+  "projectType": "application",
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "sourceRoot": "projects/cmems/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "ngx-build-plus:browser",
+      "options": {
+        "outputPath": "dist/cmems",
+        "index": "projects/cmems/src/index.html",
+        "polyfills": ["zone.js"],
+        "tsConfig": "projects/cmems/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["projects/cmems/src/favicon.ico", "projects/cmems/src/assets"],
+        "styles": ["projects/cmems/src/styles.scss"],
+        "scripts": [],
+        "main": "projects/cmems/src/main.ts",
+        "extraWebpackConfig": "projects/cmems/webpack.config.js",
+        "commonChunk": false
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all",
+          "extraWebpackConfig": "projects/cmems/webpack.prod.config.js"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production",
+      "outputs": ["{options.outputPath}"]
+    },
+    "serve": {
+      "executor": "ngx-build-plus:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "cmems:build:production",
+          "extraWebpackConfig": "projects/cmems/webpack.prod.config.js"
+        },
+        "development": {
+          "buildTarget": "cmems:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "proxyConfig": "proxy.config.json",
+        "port": 4200,
+        "publicHost": "http://localhost:4200",
+        "extraWebpackConfig": "projects/cmems/webpack.config.js"
+      }
+    },
+    "extract-i18n": {
+      "executor": "ngx-build-plus:extract-i18n",
+      "options": {
+        "buildTarget": "cmems:build",
+        "extraWebpackConfig": "projects/cmems/webpack.config.js"
+      }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "polyfills": ["zone.js", "zone.js/testing"],
+        "tsConfig": "projects/cmems/tsconfig.spec.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["projects/cmems/src/favicon.ico", "projects/cmems/src/assets"],
+        "styles": ["projects/cmems/src/styles.scss"],
+        "scripts": []
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+<div class="action-button-container">
+  @if (actionButtonFrom) {
+  <button mat-button class="action-button" routerLinkActive="active" (click)="onActionButtonClick(actionButtonFrom)">
+    {{ actionButtonFrom }}
+  </button>
+  }
+</div>

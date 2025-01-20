@@ -1,0 +1,17 @@
+<div class="dialog-container">
+  <header class="dialog-header">
+    <span>{{data.message}}</span>
+    <button class="dialog-close-button" mat-icon-button aria-label="close dialog" mat-dialog-close>
+      <mat-icon>close</mat-icon>
+    </button>
+  </header>
+  <section class="dialog-section">
+    <mat-dialog-content> Would you like to delete cat.jpeg? {{ data | json }} </mat-dialog-content>
+  </section>
+  <footer class="dialog-footer">
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close>No</button>
+      <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+    </mat-dialog-actions>
+  </footer>
+</div>

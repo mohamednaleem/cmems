@@ -1,0 +1,6 @@
+<div class="interrogators-container">
+  <lib-sub-header [title]="title" [navTitle]="navTitle" [actionButtonFrom]="actionButtonFrom" (outEmittedClick)="outEmittedClick($event)"></lib-sub-header>
+  <div class="is-authorised">{{ data?.state }}</div>
+  <lib-sub-menu [menuItems]="menuItems"></lib-sub-menu>
+  <router-outlet />
+</div>

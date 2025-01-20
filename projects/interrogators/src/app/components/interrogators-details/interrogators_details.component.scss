@@ -1,0 +1,10 @@
+@import '~ag-grid-community/styles/ag-grid.css';
+@import '~ag-grid-community/styles/ag-theme-alpine.css';
+
+.interrogators-container {
+  width: 80%;
+  margin: auto;
+  .is-authorised {
+    text-align: center;
+  }
+}

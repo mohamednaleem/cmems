@@ -1,0 +1,13 @@
+<div class="sub-menu-container">
+  @for (item of menuItems; track item) {
+  <button
+    mat-button
+    class="sub-menu-button"
+    [routerLink]="item.link"
+    [queryParams]="item.filterLink ? { filter: getFilter(item.filterLink) } : null"
+    routerLinkActive="active"
+  >
+    {{ item.label }}
+  </button>
+  }
+</div>

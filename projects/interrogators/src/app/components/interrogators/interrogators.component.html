@@ -1,0 +1,5 @@
+<div class="interrogators-container">
+  <lib-sub-header [title]="title" [navTitle]="navTitle"></lib-sub-header>
+  <lib-sub-menu [menuItems]="menuItems"></lib-sub-menu>
+  <lib-tables [rowData]="filteredInterrogators" (outEmittedClick)="handlePatientClick($event)"></lib-tables>
+</div>

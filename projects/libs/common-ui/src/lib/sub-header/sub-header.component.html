@@ -1,0 +1,8 @@
+<div class="heading">
+  <lib-location-back [navTitle]="navTitle"></lib-location-back>
+  <div class="title">{{ title }}</div>
+  <lib-action-button
+    [actionButtonFrom]="actionButtonFrom"
+    (outEmittedClick)="handleActionButton($event)"
+  ></lib-action-button>
+</div>

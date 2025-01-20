@@ -1,0 +1,21 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "lib": ["ES2022", "dom"],
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "card": ["projects/card/src/index.ts"],
+      "libs": ["projects/libs/src/index.ts"],
+      "paginator": ["projects/libs/tables/src/lib/paginator/src/index.ts"],
+      "tables": ["projects/libs/tables/src/index.ts"]
+    }
+  }
+}

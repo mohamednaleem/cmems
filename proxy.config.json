@@ -1,0 +1,8 @@
+{
+  "/api/**": {
+    "target": "https://care.q3-hfcloudaks.products.abbott",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

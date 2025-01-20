@@ -1,0 +1,15 @@
+<header class="nav-header-container">
+  <div class="navbar">
+    <div class="navbar-brand">
+      <img class="logo" src="../../../assets/abbott-laboratories.png" alt="Abbott Logo" />
+      <span>CardioMEMS</span>
+    </div>
+    <div>
+      @for (item of navItems; track item.label) {
+      <button mat-button class="border-radius" [routerLink]="item.link" routerLinkActive="active">
+        {{ item.label }}
+      </button>
+      }
+    </div>
+  </div>
+</header>
